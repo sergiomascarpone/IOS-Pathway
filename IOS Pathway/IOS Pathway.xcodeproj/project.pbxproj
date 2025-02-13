@@ -32,22 +32,16 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1BBA33C72D5CE14900351675 /* IOS Pathway */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "IOS Pathway";
 			sourceTree = "<group>";
 		};
 		1BBA33D82D5CE14B00351675 /* IOS PathwayTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "IOS PathwayTests";
 			sourceTree = "<group>";
 		};
 		1BBA33E22D5CE14B00351675 /* IOS PathwayUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "IOS PathwayUITests";
 			sourceTree = "<group>";
 		};

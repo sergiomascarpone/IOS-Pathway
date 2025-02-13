@@ -11,7 +11,11 @@ struct LessonsView: View {
     let lessons: [Lesson] = [
         Lesson(title: "Введение в Swift", description: "Основы языка Swift", difficulty: .beginner),
         Lesson(title: "Основы UIKit", description: "Создание интерфейсов на UIKit", difficulty: .intermediate),
-        Lesson(title: "Архитектура MVVM", description: "Правильная организация кода", difficulty: .advanced)
+        Lesson(title: "Тесты и квизы", description: "проверка знаний с прогрессивной сложностью.", difficulty: .advanced),
+        Lesson(title: "Кодовые челленджи", description: "задачи с реальными кейсами, от простых до сложных.", difficulty: .intermediate),
+        Lesson(title: "Раздел с актуальными новостями и трендами", description: "статьи, обновления iOS SDK, изменения в Swift.", difficulty: .intermediate),
+        Lesson(title: "Сообщество и менторство", description: "форум или чат для обсуждений, поиска решений и общения с экспертами.", difficulty: .intermediate),
+        Lesson(title: "Система достижений и мотивации", description: "награды, уровни, рейтинги, чтобы стимулировать развитие.", difficulty: .beginner),
     ]
 
     var body: some View {
