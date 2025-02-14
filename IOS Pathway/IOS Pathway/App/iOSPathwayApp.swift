@@ -8,10 +8,17 @@
 import SwiftUI
 
 @main
-struct iOSPathwayApp: App {
-    var body: some Scene {
-        WindowGroup {
-            WelcomeView()
-        }
-    }
+struct IOSPathwayApp: App {
+    @StateObject var appState = AppState()
+
+      var body: some Scene {
+          WindowGroup {
+              if appState.isAuthenticated {
+                  MainTabView()
+              } else {
+                  WelcomeView()
+              }
+          }
+          .environmentObject(appState)
+      }
 }

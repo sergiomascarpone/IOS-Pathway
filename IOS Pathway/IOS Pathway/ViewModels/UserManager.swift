@@ -5,16 +5,23 @@
 //  Created by Sergio Mascarpone on 13.02.25.
 //
 
-import SwiftUI
+import Foundation
 
 class UserManager: ObservableObject {
-    static let shared = UserManager() // Singleton
+    static let shared = UserManager()
     
-    @Published var nickname: String {
-        didSet { UserDefaults.standard.set(nickname, forKey: "nickname") }
-    }
+    @Published var nickname: String = ""
     
     private init() {
-        self.nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+        loadNickname()
+    }
+    
+    func saveNickname(_ name: String) {
+        nickname = name
+        UserDefaults.standard.set(name, forKey: "userNickname")
+    }
+    
+    func loadNickname() {
+        nickname = UserDefaults.standard.string(forKey: "userNickname") ?? ""
     }
 }

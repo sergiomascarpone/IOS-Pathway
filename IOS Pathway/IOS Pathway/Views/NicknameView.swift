@@ -9,43 +9,46 @@ import SwiftUI
 
 struct NicknameView: View {
     @State private var nickname: String = ""
-    @State private var isNextActive = false
-    
+    @Binding var isAuthenticated: Bool // Связь с родительским экраном
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
-        VStack(spacing: 20) {
-            Spacer()
-            
-            Text("Придумай никнейм")
-                .font(.title)
-                .fontWeight(.bold)
-            
-            TextField("Введите ник", text: $nickname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button(action: saveNickname) {
-                Text("Продолжить")
-                    .bold()
-                    .frame(maxWidth: 250)
+        ZStack {
+            Color.black.opacity(0.4)
+                .edgesIgnoringSafeArea(.all)
+
+            VStack(spacing: 20) {
+                Text("Придумай никнейм")
+                    .font(.title)
+                    .fontWeight(.bold)
+
+                TextField("Введите ник", text: $nickname)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    .background(nickname.isEmpty ? Color.gray : Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+
+                Button(action: saveNickname) {
+                    Text("Продолжить")
+                        .bold()
+                        .frame(maxWidth: 250)
+                        .padding()
+                        .background(nickname.isEmpty ? Color.gray : Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                }
+                .disabled(nickname.isEmpty)
             }
-            .disabled(nickname.isEmpty)
-            
-            NavigationLink(destination: RegistrationView(), isActive: $isNextActive) {
-                EmptyView()
-            }
-            
-            Spacer()
+            .padding()
+            .background(Color.white)
+            .cornerRadius(16)
+            .shadow(radius: 5)
+            .frame(maxWidth: 300)
         }
-        .padding()
     }
-    
+
     private func saveNickname() {
         guard !nickname.isEmpty else { return }
         UserDefaults.standard.set(nickname, forKey: "userNickname")
-        isNextActive = true  // Активируем переход
+        isAuthenticated = true // После ввода никнейма переходим в MainTabView
+        presentationMode.wrappedValue.dismiss()
     }
 }

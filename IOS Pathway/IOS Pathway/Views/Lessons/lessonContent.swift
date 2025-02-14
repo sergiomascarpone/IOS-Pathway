@@ -13,7 +13,7 @@ let lessonContent: [String: [LessonSection]] = [
         LessonSection(title: "🔗 Полезные ссылки:", description: """
         - [Официальная документация](https://swift.org/documentation/)
         - [Swift Playgrounds](https://apps.apple.com/us/app/swift-playgrounds/id908519492)
-        """)
+        """),
     ],
     
     "Основы UIKit": [

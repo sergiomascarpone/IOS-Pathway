@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject private var userManager = UserManager.shared
+    @StateObject private var userManager = UserManager.shared
     
     var body: some View {
         NavigationStack {
@@ -39,6 +39,9 @@ struct ProfileView: View {
             }
             .padding()
             .navigationTitle("Профиль")
+            .onAppear {
+                userManager.loadNickname() // Загружаем никнейм при появлении экрана
+            }
         }
     }
 }

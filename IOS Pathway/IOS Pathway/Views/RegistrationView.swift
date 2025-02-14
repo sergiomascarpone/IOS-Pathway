@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @Environment(\.dismiss) var dismiss
-    @State private var isAuthenticated = false
-    
+    @State private var showNicknameView = false
+    @State private var isAuthenticated = false // Добавляем переменную состояния
+    @EnvironmentObject var appState: AppState // Используем объект состояния
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
                 Text("Регистрация в")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                
+
                 Text("iOS Pathway!")
                     .font(.system(size: 40, weight: .heavy, design: .rounded))
                     .foregroundStyle(
@@ -28,14 +29,14 @@ struct RegistrationView: View {
                         )
                     )
                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 2, y: 2)
-                
+
                 Text("Создай аккаунт, чтобы получить доступ ко всем урокам, тестам и челленджам.")
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 20)
-                
+
                 Spacer()
-                
+
                 VStack(spacing: 14) {
                     RegistrationButton(
                         title: "Войти с Apple",
@@ -44,7 +45,7 @@ struct RegistrationView: View {
                     ) {
                         authenticate()
                     }
-                    
+
                     RegistrationButton(
                         title: "Войти с Google",
                         icon: "globe",
@@ -52,7 +53,7 @@ struct RegistrationView: View {
                     ) {
                         authenticate()
                     }
-                    
+
                     RegistrationButton(
                         title: "Войти с Email",
                         icon: "envelope",
@@ -62,10 +63,13 @@ struct RegistrationView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                
+                .sheet(isPresented: $showNicknameView) {
+                    NicknameView(isAuthenticated: $isAuthenticated) // Передаем флаг аутентификации
+                }
+
                 Spacer()
                     .padding(.bottom, 40)
-                
+
                 NavigationLink(destination: MainTabView(), isActive: $isAuthenticated) {
                     EmptyView()
                 }
@@ -74,9 +78,14 @@ struct RegistrationView: View {
             .padding()
         }
     }
-    
+
     private func authenticate() {
-        isAuthenticated = true // Имитируем успешный вход, прописать логику регистрации
+        showNicknameView = true
+    }
+
+    private func completeRegistration(nickname: String) {
+        UserManager.shared.saveNickname(nickname)
+        appState.isAuthenticated = true
     }
 }
 
