@@ -36,4 +36,3 @@ struct LessonsView: View {
         }
     }
 }
-
