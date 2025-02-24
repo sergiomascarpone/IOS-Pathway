@@ -42,6 +42,7 @@ struct ProfileView: View {
             .onAppear {
                 userManager.loadNickname() // Загружаем никнейм при появлении экрана
             }
+            .applyBackground() // Добавляем фон
         }
     }
 }
@@ -67,4 +68,8 @@ struct ProfileRow: View {
         }
         .padding(.horizontal)
     }
+}
+
+#Preview {
+    ProfileView()
 }

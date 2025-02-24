@@ -69,6 +69,7 @@ struct WelcomeView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
+            .applyBackground() // Добавляем фон
         }
     }
 }

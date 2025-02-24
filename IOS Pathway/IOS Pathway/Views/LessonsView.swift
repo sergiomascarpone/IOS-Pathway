@@ -36,3 +36,7 @@ struct LessonsView: View {
         }
     }
 }
+
+#Preview {
+    LessonsView()
+}
