@@ -68,8 +68,8 @@ struct WelcomeView: View {
                     Spacer()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
+                .applyBackground() // Применяем единый фон
             }
-            .applyBackground() // Добавляем фон
         }
     }
 }

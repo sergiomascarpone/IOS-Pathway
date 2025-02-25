@@ -17,20 +17,25 @@ struct LessonsView: View {
         Lesson(title: "Сообщество и менторство", description: "Форум или чат для обсуждений, поиска решений и общения с экспертами.", difficulty: .intermediate),
         Lesson(title: "Система достижений и мотивации", description: "Награды, уровни, рейтинги, чтобы стимулировать развитие.", difficulty: .intermediate)
     ]
-
+    
     var body: some View {
         NavigationStack {
-            List(lessons) { lesson in
-                NavigationLink(destination: LessonDetailView(lesson: lesson)) {
-                    VStack(alignment: .leading) {
-                        Text(lesson.title)
-                            .font(.headline)
-                        Text(lesson.description)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+            ZStack {
+                Color.clear.applyBackground() // Фон во всём экране
+                
+                List(lessons) { lesson in
+                    NavigationLink(destination: LessonDetailView(lesson: lesson)) {
+                        VStack(alignment: .leading) {
+                            Text(lesson.title)
+                                .font(.headline)
+                            Text(lesson.description)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
                     }
-                    .padding()
                 }
+                .scrollContentBackground(.hidden) // Убирает фон списка
             }
             .navigationTitle("Материалы")
         }

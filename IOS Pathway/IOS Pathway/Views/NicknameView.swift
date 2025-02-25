@@ -52,3 +52,4 @@ struct NicknameView: View {
         presentationMode.wrappedValue.dismiss()
     }
 }
+

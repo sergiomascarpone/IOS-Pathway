@@ -11,34 +11,33 @@ struct LessonDetailView: View {
     let lesson: Lesson
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                if let content = lessonContent[lesson.title] {
-                    ForEach(content, id: \.self) { section in
-                        //                        Text(section.title)
-                        //                            .font(.title2)
-                        //                            .fontWeight(.semibold)
-                        //                            .foregroundColor(.blue)
-                        
-                        if section.title.contains("🔗") {
-                            let parsedLinks = parseLinks(from: section.description)
-                            ForEach(parsedLinks, id: \.id) { item in
-                                if let url = item.url {
-                                    Link("🔗 \(item.text)", destination: url)
-                                        .foregroundColor(.blue)
-                                        .underline()
-                                } else {
-                                    Text(item.text)
+        ZStack {
+            Color.clear.applyBackground() // Фон на весь экран
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    if let content = lessonContent[lesson.title] {
+                        ForEach(content, id: \.self) { section in
+                            if section.title.contains("🔗") {
+                                let parsedLinks = parseLinks(from: section.description)
+                                ForEach(parsedLinks, id: \.id) { item in
+                                    if let url = item.url {
+                                        Link("🔗 \(item.text)", destination: url)
+                                            .foregroundColor(.blue)
+                                            .underline()
+                                    } else {
+                                        Text(item.text)
+                                    }
                                 }
+                            } else {
+                                Text(section.description)
                             }
-                        } else {
-                            Text(section.description)
                         }
                     }
+                    Spacer()
                 }
-                Spacer()
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(lesson.title)
     }
@@ -63,25 +62,10 @@ struct LessonDetailView: View {
                let urlRange = Range(match.range(at: 2), in: text),
                let url = URL(string: String(text[urlRange])) {
                 
-                //                // Добавляем текст перед ссылкой
-                //                let beforeText = text[lastRangeEnd..<textRange.lowerBound]
-                //                if !beforeText.isEmpty {
-                //                    results.append(LinkItem(text: String(beforeText), url: nil))
-                //                }
-                
                 // Добавляем саму ссылку
                 results.append(LinkItem(text: String(text[textRange]), url: url))
-                
-                //                lastRangeEnd = urlRange.upperBound
             }
         }
-        
-        //        // Добавляем оставшийся текст после последней ссылки
-        //        let remainingText = text[lastRangeEnd...]
-        //        if !remainingText.isEmpty {
-        //            results.append(LinkItem(text: String(remainingText), url: nil))
-        //        }
-        
         return results
     }
 }
