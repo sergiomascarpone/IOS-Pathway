@@ -11,21 +11,21 @@ struct NicknameView: View {
     @State private var nickname: String = ""
     @Binding var isAuthenticated: Bool // Связь с родительским экраном
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.4)
                 .edgesIgnoringSafeArea(.all)
-
+            
             VStack(spacing: 20) {
                 Text("Придумай никнейм")
                     .font(.title)
                     .fontWeight(.bold)
-
+                
                 TextField("Введите ник", text: $nickname)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-
+                
                 Button(action: saveNickname) {
                     Text("Продолжить")
                         .bold()
@@ -44,7 +44,7 @@ struct NicknameView: View {
             .frame(maxWidth: 300)
         }
     }
-
+    
     private func saveNickname() {
         guard !nickname.isEmpty else { return }
         UserDefaults.standard.set(nickname, forKey: "userNickname")
