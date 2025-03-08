@@ -64,7 +64,6 @@ struct WelcomeView: View {
                     .navigationDestination(isPresented: $showRegistration) {
                         RegistrationView()
                     }
-                    
                     Spacer()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)

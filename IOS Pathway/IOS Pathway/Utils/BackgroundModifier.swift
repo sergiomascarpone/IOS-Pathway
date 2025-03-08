@@ -10,13 +10,13 @@ import SwiftUI
 //struct BackgroundModifier: ViewModifier {
 //    func body(content: Content) -> some View {
 //        content
-////            .background(
-////                LinearGradient(
-////                    gradient: Gradient(colors: [Color.blue.opacity(0.2), Color.purple.opacity(0.2)]),
-////                    startPoint: .topLeading,
-////                    endPoint: .bottomTrailing)
-////                .ignoresSafeArea()
-////            )
+//            .background(
+//                LinearGradient(
+//                    gradient: Gradient(colors: [Color.blue.opacity(0.2), Color.purple.opacity(0.2)]),
+//                    startPoint: .topLeading,
+//                    endPoint: .bottomTrailing)
+//                .ignoresSafeArea()
+//            )
 //    }
 //}
 

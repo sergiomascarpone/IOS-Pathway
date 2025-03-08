@@ -89,7 +89,6 @@ struct RegistrationView: View {
     }
 }
 
-
 struct RegistrationButton: View {
     let title: String
     let icon: String
