@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RegistrationView: View {
     @State private var showNicknameView = false
-    @State private var isAuthenticated = false // Добавляем переменную состояния
-    @EnvironmentObject var appState: AppState // Используем объект состояния
+    @State private var isAuthenticated = false //Добавляем переменную состояния
+    @EnvironmentObject var appState: AppState //Используем объект состояния
     
     var body: some View {
         NavigationStack {
@@ -64,7 +64,7 @@ struct RegistrationView: View {
                 }
                 .padding(.horizontal, 20)
                 .sheet(isPresented: $showNicknameView) {
-                    NicknameView(isAuthenticated: $isAuthenticated) // Передаем флаг аутентификации
+                    NicknameView(isAuthenticated: $isAuthenticated) //Передаем флаг аутентификации
                 }
                 
                 Spacer()
@@ -72,7 +72,7 @@ struct RegistrationView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .applyBackground() // Добавляем фон
+            .applyBackground() //Добавляем фон
             .navigationDestination(isPresented: $isAuthenticated) {
                 MainTabView()
             }
