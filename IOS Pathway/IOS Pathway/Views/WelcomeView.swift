@@ -47,7 +47,7 @@ struct WelcomeView: View {
                     }) {
                         Text("🚀 Открыть путь iOS-разработчика")
                             .bold()
-                            .frame(width: min(geometry.size.width * 0.8, 300)) // Ограничение ширины кнопки
+                            .frame(width: min(geometry.size.width * 0.8, 300)) //Ограничение ширины кнопки
                             .padding()
                             .background(
                                 LinearGradient(
@@ -67,7 +67,7 @@ struct WelcomeView: View {
                     Spacer()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
-                .applyBackground() // Применяем единый фон
+                .applyBackground() //Применяем единый фон
             }
         }
     }
