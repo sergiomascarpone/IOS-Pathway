@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NicknameView: View {
     @State private var nickname: String = ""
-    @Binding var isAuthenticated: Bool // Связь с родительским экраном
+    @Binding var isAuthenticated: Bool //Связь с родительским экраном
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -48,7 +48,7 @@ struct NicknameView: View {
     private func saveNickname() {
         guard !nickname.isEmpty else { return }
         UserDefaults.standard.set(nickname, forKey: "userNickname")
-        isAuthenticated = true // После ввода никнейма переходим в MainTabView
+        isAuthenticated = true //После ввода никнейма переходим в MainTabView
         presentationMode.wrappedValue.dismiss()
     }
 }
