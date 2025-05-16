@@ -22,6 +22,6 @@ struct MainTabView: View {
                     Label("Профиль", systemImage: "person.fill")
                 }
         }
-        .applyBackground() // Применяем единый фон
+        .applyBackground() //Применяем единый фон
     }
 }
