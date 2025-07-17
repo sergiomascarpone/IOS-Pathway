@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RegistrationView: View {
     @State private var showNicknameView = false
-    @State private var isAuthenticated = false //Добавляем переменную состояния
-    @EnvironmentObject var appState: AppState //Используем объект состояния
+    @State private var isAuthenticated = false // Добавляем переменную состояния
+    @EnvironmentObject var appState: AppState // Используем объект состояния
     
     var body: some View {
         NavigationStack {
