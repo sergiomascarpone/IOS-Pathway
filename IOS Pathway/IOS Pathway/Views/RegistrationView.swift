@@ -64,7 +64,7 @@ struct RegistrationView: View {
                 }
                 .padding(.horizontal, 20)
                 .sheet(isPresented: $showNicknameView) {
-                    NicknameView(isAuthenticated: $isAuthenticated) //Передаем флаг аутентификации
+                    NicknameView(isAuthenticated: $isAuthenticated) // Передаем флаг аутентификации
                 }
                 
                 Spacer()
@@ -72,7 +72,7 @@ struct RegistrationView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .applyBackground() //Добавляем фон
+            .applyBackground() // Добавляем фон
             .navigationDestination(isPresented: $isAuthenticated) {
                 MainTabView()
             }
