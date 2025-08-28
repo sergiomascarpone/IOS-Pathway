@@ -21,7 +21,7 @@ struct LessonsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.clear.applyBackground() //Фон во всём экране
+                Color.clear.applyBackground() // Фон во всём экране
                 
                 List(lessons) { lesson in
                     NavigationLink(destination: LessonDetailView(lesson: lesson)) {
@@ -35,7 +35,7 @@ struct LessonsView: View {
                         .padding()
                     }
                 }
-                .scrollContentBackground(.hidden) //Убирает фон списка
+                .scrollContentBackground(.hidden) // Убирает фон списка
             }
             .navigationTitle("Материалы")
         }
