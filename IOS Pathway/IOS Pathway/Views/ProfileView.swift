@@ -40,9 +40,9 @@ struct ProfileView: View {
             .padding()
             .navigationTitle("Профиль")
             .onAppear {
-                userManager.loadNickname() //Загружаем никнейм при появлении экрана
+                userManager.loadNickname() // Загружаем никнейм при появлении экрана
             }
-            .applyBackground() //Применяем единый фон
+            .applyBackground() // Применяем единый фон
         }
     }
 }
