@@ -25,9 +25,9 @@ extension View {
         self.background(
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(hex: "#F8E8EE"), //Нежно-розовый
-                    Color(hex: "#E6F7FF"), //Светло-голубой
-                    Color(hex: "#FAF3E0")  //Тёплый бежевый
+                    Color(hex: "#F8E8EE"), // Нежно-розовый
+                    Color(hex: "#E6F7FF"), // Светло-голубой
+                    Color(hex: "#FAF3E0")  // Тёплый бежевый
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -37,7 +37,7 @@ extension View {
     }
 }
 
-//Расширение для работы с HEX-цветами
+// Расширение для работы с HEX-цветами
 extension Color {
     init(hex: String) {
         let scanner = Scanner(string: hex)
