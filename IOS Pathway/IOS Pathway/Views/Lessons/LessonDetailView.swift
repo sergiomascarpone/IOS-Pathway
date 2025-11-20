@@ -42,14 +42,14 @@ struct LessonDetailView: View {
         .navigationTitle(lesson.title)
     }
     
-    // Структура для хранения текста и ссылки
+    // Структура для хранения текста и ссылки!!
     struct LinkItem: Identifiable {
         let id = UUID()
         let text: String
         let url: URL?
     }
     
-    // Функция для парсинга Markdown-ссылок
+    // Функция для парсинга Markdown-ссылок!!
     private func parseLinks(from text: String) -> [LinkItem] {
         let regex = try! NSRegularExpression(pattern: "\\[(.*?)\\]\\((.*?)\\)")
         let matches = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
@@ -62,7 +62,7 @@ struct LessonDetailView: View {
                let urlRange = Range(match.range(at: 2), in: text),
                let url = URL(string: String(text[urlRange])) {
                 
-                // Добавляем саму ссылку
+                // Добавляем саму ссылку!!
                 results.append(LinkItem(text: String(text[textRange]), url: url))
             }
         }
