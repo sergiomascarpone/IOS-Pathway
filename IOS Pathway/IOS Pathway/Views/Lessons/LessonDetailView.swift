@@ -12,7 +12,7 @@ struct LessonDetailView: View {
     
     var body: some View {
         ZStack {
-            Color.clear.applyBackground() //Фон на весь экран
+            Color.clear.applyBackground() // Фон на весь экран
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
@@ -42,7 +42,7 @@ struct LessonDetailView: View {
         .navigationTitle(lesson.title)
     }
     
-    //Структура для хранения текста и ссылки!!
+    // Структура для хранения текста и ссылки!!
     struct LinkItem: Identifiable {
         let id = UUID()
         let text: String
