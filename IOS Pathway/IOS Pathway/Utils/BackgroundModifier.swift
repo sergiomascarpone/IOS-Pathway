@@ -37,7 +37,7 @@ extension View {
     }
 }
 
-// Расширение для работы с HEX-цветами
+//Расширение для работы с HEX-цветами
 extension Color {
     init(hex: String) {
         let scanner = Scanner(string: hex)
